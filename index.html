@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title>Peter Gyory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+  <div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+        <h1 class="brand-title">Peter Gyory</h1>
+        <h2 class="brand-tagline">A Humble JavaScript Developer</h2>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="img/resume.pdf">Resume</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+      <div class="content pure-u-1 pure-u-md-3-4">
+          <div>
+              <div class="posts">
+                <h1 class="content-subhead">Recent Projects</h1>
+                  <section class="post">
+                      <header class="post-header">
+                          <h2 class="post-title">Interlude</h2>
+                          <p class="post-meta">
+                              <strong>Tags:</strong> <a class="post-category post-category-js">JavaScript</a><a class="post-category post-category-js">HTML5 Canvas</a><a class="post-category post-category-js">Socket.io</a><a class="post-category post-category-js">Node.js</a>
+                          </p>
+                      </header>
+
+                      <div class="post-description">
+                            <a href="http://interlude.rocks">
+                                <img alt="Start screen of Interlude game"
+                                     class="pure-img-responsive"
+                                     src="img/interlude-1.png">
+                            </a>
+                          <p>
+                            A browser-based multiplayer music game that promotes music education. Players use their phone or mobile to connect to a display hosted at an event, their device then becomes a controler similar with which they aim at target bubbles to pop and release music.
+                          </p>
+                          <a href="http://interlude.rocks">Project Homepage</a>
+                  </section>
+                  <section class="post">
+                      <header class="post-header">
+                          <h2 class="post-title">A Scanner Orderly</h2>
+                          <p class="post-meta">
+                              <strong>Tags:</strong> <a class="post-category post-category-js">Arduino</a><a class="post-category post-category-js">C++</a><a class="post-category post-category-js">JavaScript</a><a class="post-category post-category-js">Node.js</a>
+                          </p>
+                      </header>
+
+                      <div class="post-description">
+                                <img alt="Scanner executing idle light animation"
+                                     class="pure-img-responsive"
+                                     src="img/scanner-1.jpg">
+                          <p>
+                            A 3D printed coaster that enables patrons to order drinks remotely. This was a project for the Physical Computing class I took last spring. Using an RGB sensor to detect the color underneath it, users would pick an item from a color coded menu, the order was then sent to a node.js server that updated a web-interface designed for the bartender to keep track of orders.
+                          </p>
+                          <a href="https://github.com/dropofwill/a-scanner-orderly-embed">Arduino Repo</a>
+                          <a href="https://github.com/dropofwill/a-scanner-orderly-web">Node Server Repo</a>
+                          <a href="http://physicalpetroochio.tumblr.com/post/119678490973/a-scanner-orderly">Project Blogpost</a>
+                  </section>
+                  <section class="post">
+                      <header class="post-header">
+                          <h2 class="post-title">Mouse Rat</h2>
+                          <p class="post-meta">
+                              <strong>Tags:</strong> <a class="post-category post-category-js">Arduino</a><a class="post-category post-category-js">C++</a>
+                          </p>
+                      </header>
+
+                      <div class="post-description">
+                                <img alt="An exposed mouse glove"
+                                     class="pure-img-responsive"
+                                     src="img/mouse-1.jpg">
+                          <p>
+                            A mouse embedded into a glove that is controlled with accelerometers. This was also a project for the Physical Computing class I took last spring. One of my partners for this project had a history of carpal tunnel disease so we decided to try and make a more comfortable mouse. Using a sewable Arduino floura, an accelerometer, and capacitve touch sensors we made a wearable mouse.
+                          </p>
+                          <a href="https://github.com/dropofwill/mouse-rat">Arduino Repo</a>
+                          <a href="http://physicalpetroochio.tumblr.com/post/114986894753/project-runway-mouse-rat-incarnate">Project Blogpost</a>
+                  </section>
+                  <section class="post">
+                      <header class="post-header">
+                          <h2 class="post-title">Stargazer</h2>
+                          <p class="post-meta">
+                              <strong>Tags:</strong> <a class="post-category post-category-js">JavaScript</a><a class="post-category post-category-js">HTML5 Canvas</a>
+                          </p>
+                      </header>
+
+                      <div class="post-description">
+                                <img alt="Star map view"
+                                     class="pure-img-responsive"
+                                     src="img/star-1.png">
+                          <p>
+                            A web-app utilizing a HTML5 Canvas library, Starchartjs, to render a view of the night sky based on cached data of star charts. It hooks into the lookUP API to find the locations of heavenly bodies the user searches for. Starchartjs allowed for rendering of constellations. On start the application shows you the night sky at the user's GPS location, then the user can scroll through all latitue/longitudes.
+                          </p>
+                          <a href="http://people.rit.edu/ptg3662/330/project2/stargazer2.html">Live Project</a>
+                  </section>
+              </div>
+
+              <div class="footer">
+                  <h1 >About Me</h1>
+                  <p >Hello! I'm Peter Gyory, and I'm a glass-half-full stack developer. Now enjoying my last year at The Rochester Institute of Technology where I am earning a degree in Game Design and Development. I like making multi-user interactive experiences and experimenting with new technologies.
+                  <div class="pure-menu pure-menu-horizontal">
+                      <ul>
+                          <li class="pure-menu-item"><a href="https://www.linkedin.com/in/petergyory" class="pure-menu-link">LinkedIn</a></li>
+                          <li class="pure-menu-item"><a href="https://github.com/Petroochio" class="pure-menu-link">GitHub</a></li>
+                          <li class="pure-menu-item"><a href="mailto:ptg3662@rit.edu" class="pure-menu-link">ptg3662@rit.edu</a></li>
+                          <li class="pure-menu-item"><a href="https://www.facebook.com/peter.gyory.7" class="pure-menu-link">Facebook</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+</html>
