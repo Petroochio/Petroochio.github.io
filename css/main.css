@@ -35,6 +35,13 @@ h3 {
     margin: 3em auto;
 }
 
+img.profile {
+  height: 100px;
+  width: 100px;
+  border: 1px solid rgb(61, 79, 93);
+  border-radius: 50% 50% 50% 50%;
+}
+
 .sidebar {
     background: rgb(61, 79, 93);
     color: #fff;
