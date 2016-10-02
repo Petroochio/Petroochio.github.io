@@ -1,4 +1,31 @@
-.home-page {
+$font-lg: 20px;
+$font-sl: 16px;
+$font-md: 14px;
+$font-sm: 12px;
+
+// colors
+$blue: blue;
+$text-dark: black;
+$text-default: black;
+$text-light: gray;
+$text-invert: white;
+$footer-background: gray;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
   width: 80%;
+  margin: 0 auto;
+}
+
+.home-page {
+  padding-top: 40vh;
   font-family: "Montseratt", sans-serif;
 }
+
+@import "header";
+@import "footer";
+@import "project-links";

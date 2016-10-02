@@ -1,0 +1,40 @@
+.header {
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px dashed black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+
+    h1 {
+      display: inline-block;
+      font-size: $font-lg;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 5px;
+      color: black;
+      letter-spacing: 1px;
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      display: inline-block;
+      font-size: $font-sl;
+      letter-spacing: 1px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      letter-spacing: 1px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 200px;
+  background-color: $footer-background;
+  width: 100%;
+
+  padding: 15px 0;
+  color: $text-invert;
+
+  &-email {
+    display: inline-block;
+    font-size: $font-sl;
+    letter-spacing: 1px;
+  }
+}
