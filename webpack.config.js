@@ -5,7 +5,7 @@ var extractCSS = new ExtractTextPlugin('css/main.css');
 
 module.exports = {
   entry: {
-    client: './index',
+    client: './src/index',
   },
 
   output: {
