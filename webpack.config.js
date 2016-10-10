@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve('build'),
     filename: 'js/[name].js',
-    publicPath: '/static/',
+    publicPath: '../../build/',
   },
 
   module: {
@@ -26,6 +26,7 @@ module.exports = {
         exclude: /(node_modules|build)/,
         loader: 'babel-loader',
       },
+      { test: /\.jpg$/, loader: "file-loader" },
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
     ],
   },

@@ -7,21 +7,15 @@ import ProjectLink from '../molecules/project-link';
 export default function () {
   return (
     <div className="home-page">
-      <div className="container">
-        <Header />
-        <div className="scroll-link">
-          <span>View Projects</span>
-          <span className=""></span>
-        </div>
-        <span className="projects-title">PROJECTS</span>
-        <div className="projects">
-          {
-            R.map(
-              img => <ProjectLink />,
-              [1,1,1,1,1,1]
-            )
-          }
-        </div>
+      <Header />
+      <span className="projects-title">PROJECTS</span>
+      <div className="projects">
+        {
+          R.map(
+            img => <ProjectLink />,
+            [1,1,1,1,1,1]
+          )
+        }
       </div>
       <Footer />
     </div>
