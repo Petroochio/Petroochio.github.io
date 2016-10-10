@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../molecules/header';
 import Footer from '../molecules/footer';
 import ProjectLink from '../molecules/project-link';
+import Projects from '../../data';
 
 export default function () {
   return (
@@ -13,7 +14,7 @@ export default function () {
         {
           R.map(
             img => <ProjectLink />,
-            [1,1,1,1,1,1]
+            Projects
           )
         }
       </div>

@@ -21,6 +21,8 @@
       text-align: center;
       font-size: $font-giant;
       margin: 20px;
+
+      transition: margin-bottom 0.5s linear, font-size 0.5s ease;
     }
 
     h2 {
@@ -31,6 +33,9 @@
       font-size: $font-sl;
       letter-spacing: 1px;
       margin: 5px;
+      max-height: 20px;
+
+      transition: max-height 0.5s ease, color 0.5s ease, font-size 0.5s ease;
     }
   }
 
@@ -47,4 +52,39 @@
       letter-spacing: 1px;
     }
   }
+
+  &-nav-box {
+    margin: 0 auto;
+  }
+}
+
+.stuck {
+  position: fixed;
+  top: 0;
+  transition: background-color 0.2s ease;
+  background-color: #fafafa;
+  box-shadow: 0 0.2px 1px #999999;
+
+  width: 100%;
+  z-index: 20;
+
+  .header {
+    &-top {
+      h1 {
+        margin-bottom: 0px;
+        font-size: $font-s-giant;
+      }
+
+      h2 {
+        max-height: 0px;
+        font-size: 0px;
+        color: transparent;
+      }
+    }
+
+    &-nav-box {
+      margin-bottom: 20px;
+    }
+  }
+
 }
