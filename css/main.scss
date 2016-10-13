@@ -1,5 +1,5 @@
 $font-giant: 40px;
-$font-s-giant: 30px;
+$font-s-giant: 25px;
 $font-lg: 20px;
 $font-sl: 16px;
 $font-md: 14px;
@@ -7,12 +7,13 @@ $font-sm: 12px;
 
 // colors
 $blue: blue;
+$dark-gray: #26383D;
 $text-dark: #00161C;
 $text-default: #00161C;
 $text-light: gray;
-$text-invert: white;
+$text-invert: #E6FDFF;
 $footer-background: gray;
-$white: #fafafa;
+$white: #FAFAFA;
 
 * {
   padding: 0;
@@ -35,3 +36,4 @@ body {
 @import "header";
 @import "footer";
 @import "project-links";
+@import "projectOverlay";

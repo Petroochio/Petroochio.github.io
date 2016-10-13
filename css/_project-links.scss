@@ -16,12 +16,11 @@
 
 .project-link {
   position: relative;
-  width: 33%;
+  width: 33.3333%;
   height: 50%;
 
   img {
     width: 100%;
-    height: 100%;
   }
 
   &__hover {
@@ -46,7 +45,7 @@
 
     overflow: hidden;
     height: 0px;
-    transition: height 1s ease, background-color 0.5s ease;
+    transition: height 0.5s ease, background-color 0.5s ease;
   }
 
   &:hover &__hover {
