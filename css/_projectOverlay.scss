@@ -10,26 +10,97 @@
   &__head {
     height: 84px;
     background-color: $white;
-    width: 100%;
-    box-shadow: 0 0.5px 1px #999999;
-    z-index: 1002;
+    width: 100vw;
+    box-shadow: 0 0.5px 2px #999999;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &-content {
+      max-width: 700px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: $font-giant;
+        margin-top: 20px;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: none;
+        height: 84px;
+        width: 84px;
+        background-color: $white;
+        font-size: $font-giant;
+        font-color: $text-dark;
+        font-weight: 100;
+
+        &:hover {
+          background-color: $light-gray;
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   &__body {
+    padding-top: 84px;
     background-color: $white;
-    width: 80%;
-    z-index: 1001;
+    width: 100%;
     margin: 0 auto;
+
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 40px;
+    }
+
+    h2 {
+      width: 80%;
+      max-width: 600px;
+      text-align: left;
+      display: block;
+      margin: 20px auto;
+      letter-spacing: 1px;
+    }
+
+    &-content {
+      padding: 20px 0;
+      width: 100%;
+      height: calc(100vh - 84px);
+      overflow-y: scroll;
+    }
+  }
+
+  &__text {
+    padding: 10px 0;
+  }
+
+  &__subtext {
+    padding: 10px 0px;
+    &:before {
+      content: "- ";
+    }
   }
 
   &__img {
     height: 40vh;
     width: 100%;
-    background-color: $dark-gray;
+    max-height: 300px;
+    background-color: $medium-gray;
     padding: 5px 0;
+    margin: 20px 0 40px 0;
+    -moz-box-shadow:    inset 0 0 2px #000000;
+    -webkit-box-shadow: inset 0 0 2px #000000;
+    box-shadow:         inset 0 0 2px #000000;
 
     img {
       height: 100%;
+      max-width: 600px;
       margin: 0 auto;
       display: block;
     }

@@ -40,7 +40,7 @@
   }
 
   &-bottom {
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     width: 50%;
     display: flex;
     justify-content: space-around;
@@ -62,8 +62,8 @@
   position: fixed;
   top: 0;
   transition: background-color 0.2s ease;
-  background-color: #fafafa;
-  box-shadow: 0 0.2px 1px #999999;
+  background-color: $white;
+  box-shadow: 0 0.2px 2px #333333;
 
   width: 100%;
   z-index: 20;

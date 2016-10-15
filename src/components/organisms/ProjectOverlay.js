@@ -23,14 +23,18 @@ class ProjectOverlay extends React.Component {
 
     return (
       <div className={classname}>
-        <section className="project-overlay__head">
-          <h1>{title}</h1>
-          <button onClick={closeOverlay}>X</button>
-        </section>
         <section className="project-overlay__body">
-          {
-            R.map( renderProjectContent, content )
-          }
+          <section className="project-overlay__head">
+            <div className="project-overlay__head-content">
+              <h1>{title}</h1>
+              <button onClick={closeOverlay}>X</button>
+            </div>
+          </section>
+          <div className="project-overlay__body-content">
+            {
+              R.map( renderProjectContent, content )
+            }
+          </div>
         </section>
       </div>
     );
