@@ -1,10 +1,11 @@
-import mouseRat from './MouseRat';
+import Interlude from './Interlude';
+import Scanner from './Scanner';
+import Mixta from './Mixta';
+import Delvr from './Delvr';
 
 export default [
-  mouseRat,
-  mouseRat,
-  mouseRat,
-  mouseRat,
-  mouseRat,
-  mouseRat,
+  Interlude,
+  Scanner,
+  Delvr,
+  Mixta,
 ]

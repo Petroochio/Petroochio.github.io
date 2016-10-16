@@ -16,7 +16,7 @@ class ProjectLink extends React.Component {
               R.map( item => <li>{item}</li>, tags )
             }
           </ul>
-          <button onClick={() => openProject( name, content )}>. . .</button>
+          <button onClick={() => openProject( name, content )}>View More</button>
         </div>
       </div>
     );

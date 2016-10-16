@@ -32,14 +32,16 @@ class Home extends React.Component {
       <div className="home-page">
         <ProjectOverlay isOpen={projectOpen} closeOverlay={this._closeOverlay} {...projectContent} />
         <Header />
-        <span className="projects-title">PROJECTS</span>
-        <div className="projects">
-          {
-            R.map(
-              project => <ProjectLink {...project} openProject={this._openOverlay} />,
-              Projects
-            )
-          }
+        <div id="work">
+          <span className="projects-title">PROJECTS</span>
+          <div className="projects">
+            {
+              R.map(
+                project => <ProjectLink {...project} openProject={this._openOverlay} />,
+                Projects
+              )
+            }
+          </div>
         </div>
         <Footer />
       </div>

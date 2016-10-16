@@ -31,7 +31,7 @@ class Header extends Component {
               </div>
               <div className="header-bottom">
                 <a href="#">About</a>
-                <a href="#">Projects</a>
+                <a href="#work">Projects</a>
                 <a href="#">Resume</a>
               </div>
             </div>

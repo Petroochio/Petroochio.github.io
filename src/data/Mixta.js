@@ -1,8 +1,8 @@
 export default {
-  name: 'Mouse Rat',
-  blurb: 'Wearable Accelerometer mouse glove',
-  tags: ['Arduino, Physical Computing'],
-  previewImg: 'img/mouse-1.jpg',
+  name: 'Mixta',
+  blurb: 'Museum exhibit enhancment for more interactive exhibits and playlist generation',
+  tags: ['LEAP MOTION', 'SPOTIFY', 'RFID'],
+  previewImg: 'img/Mixta.png',
   content: [
     {
       header: 'Overview',
