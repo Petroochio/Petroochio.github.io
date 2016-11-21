@@ -4,11 +4,12 @@ import React from 'react';
 const renderMap = {
   'text' : ({ content }) => <p className="project-overlay__text">{content}</p>,
   'subtext' : ({ content }) => <p className="project-overlay__subtext">{content}</p>,
-  'img' : ({ src }) => <div className="project-overlay__img"><img src={src}/></div>,
+  'img' : ({ src, alt }) => <div className="project-overlay__img"><img src={src} alt={alt}/></div>,
+  'link' : ({ text, href }) => <div className="project-overlay__link"><a href={href} target="_blank">{text}</a></div>,
 };
 
 const renderProjectContent = ({ header, content }) =>
-  <div>
+  <div className="project-overlay__body-element">
     <h2>{header}</h2>
     {
       R.map( item => renderMap[item.type]( item ), content )

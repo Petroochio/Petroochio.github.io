@@ -56,7 +56,20 @@
     p {
       max-width: 600px;
       margin: 0 auto;
-      line-height: 40px;
+      line-height: 1.5em;
+    }
+
+    a {
+      margin: 10px 0;
+      color: $text-dark;
+      font-size: $font-md;
+      position: relative;
+      display: inline-block;
+
+      &:hover {
+        text-decoration: none;
+        color: $medium-gray;
+      }
     }
 
     h2 {
@@ -70,9 +83,14 @@
 
     &-content {
       padding: 20px 0;
+      padding-bottom: 100px;
       width: 100%;
       height: calc(100vh - 84px);
       overflow-y: scroll;
+
+      div:last-child {
+        margin-bottom: 50px;
+      }
     }
   }
 
@@ -80,20 +98,19 @@
     padding: 10px 0;
   }
 
-  &__subtext {
-    padding: 10px 0px;
-    &:before {
-      content: "- ";
-    }
+  &__link {
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   &__img {
     height: 40vh;
+    min-height: 350px;
     width: 100%;
     max-height: 300px;
     background-color: $medium-gray;
     padding: 5px 0;
-    margin: 20px 0 40px 0;
+    margin: 10px 0 10px 0;
     -moz-box-shadow:    inset 0 0 2px #000000;
     -webkit-box-shadow: inset 0 0 2px #000000;
     box-shadow:         inset 0 0 2px #000000;
@@ -108,5 +125,20 @@
 
   &--open {
     display: block;
+  }
+}
+
+p.project-overlay__subtext {
+  padding: 10px 0 10px 0;
+  color: $semi-dark-gray;
+  font-size: $font-md;
+  max-width: 500px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: "◊";
+    top: 10px;
+    left: -10px;
   }
 }
