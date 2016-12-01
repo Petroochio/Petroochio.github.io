@@ -30898,7 +30898,7 @@
 	  name: 'Interlude',
 	  blurb: 'Multiplayer Rhythm game targeted music festivals and raising money for charity',
 	  tags: ['NODEJS', 'WEBSOCKETS', 'MULTIPLAYER'],
-	  previewImg: 'img/Interlude.png',
+	  previewImg: 'img/interlude.png',
 	  content: [{
 	    header: 'Overview',
 	    content: [{
@@ -30995,7 +30995,7 @@
 	  name: 'A Scanner Orderly',
 	  blurb: 'Interactive bar coaster for ordering drinks and managing orders',
 	  tags: ['ARDUINO', 'PHYSICAL COMPUTING', 'NODEJS'],
-	  previewImg: 'img/Scanner.jpg',
+	  previewImg: 'img/scanner.jpg',
 	  content: [{
 	    header: 'Overview',
 	    content: [{
@@ -31034,7 +31034,7 @@
 	    header: 'Technology',
 	    content: [{
 	      type: 'img',
-	      src: 'img/scanner/inside.jpg',
+	      src: 'img/scanner/inside.JPG',
 	      alt: 'Interior view of coaster'
 	    }, {
 	      type: 'subtext',
@@ -31093,7 +31093,7 @@
 	  name: 'Mixta',
 	  blurb: 'Museum exhibit enhancment for more interactive exhibits and playlist generation',
 	  tags: ['LEAP MOTION', 'SPOTIFY', 'RFID'],
-	  previewImg: 'img/Mixta.png',
+	  previewImg: 'img/mixta.png',
 	  projectURL: 'mixta.rocks',
 	  content: [{
 	    header: 'Overview',
@@ -31233,7 +31233,7 @@
 	  name: 'DelVR',
 	  blurb: 'DnD dungeon map authoring tool and 3D Web VR dungeon viewer',
 	  tags: ['THREE JS', 'WEB VR', 'NODEJS'],
-	  previewImg: 'img/Delvr.png',
+	  previewImg: 'img/delvr.png',
 	  projectURL: 'delvr.magic.rit.edu',
 	  content: [{
 	    header: 'Overview',

@@ -2,7 +2,7 @@ export default {
   name: 'Interlude',
   blurb: 'Multiplayer Rhythm game targeted music festivals and raising money for charity',
   tags: ['NODEJS', 'WEBSOCKETS', 'MULTIPLAYER'],
-  previewImg: 'img/Interlude.png',
+  previewImg: 'img/interlude.png',
   content: [
     {
       header: 'Overview',

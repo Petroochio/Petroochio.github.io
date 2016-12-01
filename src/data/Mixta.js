@@ -2,7 +2,7 @@ export default {
   name: 'Mixta',
   blurb: 'Museum exhibit enhancment for more interactive exhibits and playlist generation',
   tags: ['LEAP MOTION', 'SPOTIFY', 'RFID'],
-  previewImg: 'img/Mixta.png',
+  previewImg: 'img/mixta.png',
   projectURL: 'mixta.rocks',
   content: [
     {

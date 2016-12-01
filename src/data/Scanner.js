@@ -2,7 +2,7 @@ export default {
   name: 'A Scanner Orderly',
   blurb: 'Interactive bar coaster for ordering drinks and managing orders',
   tags: ['ARDUINO', 'PHYSICAL COMPUTING', 'NODEJS'],
-  previewImg: 'img/Scanner.jpg',
+  previewImg: 'img/scanner.jpg',
   content: [
     {
       header: 'Overview',
@@ -58,7 +58,7 @@ export default {
       content: [
         {
           type: 'img',
-          src: 'img/scanner/inside.jpg',
+          src: 'img/scanner/inside.JPG',
           alt: 'Interior view of coaster',
         },
         {
