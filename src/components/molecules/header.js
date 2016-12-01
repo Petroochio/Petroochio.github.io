@@ -30,9 +30,9 @@ class Header extends Component {
                 <h2>Interactive Developer</h2>
               </div>
               <div className="header-bottom">
-                <a href="#">About</a>
+                <a href="#about">About</a>
                 <a href="#work">Projects</a>
-                <a href="#">Resume</a>
+                <a href="./peter_gyory_resume_2016.pdf">Resume</a>
               </div>
             </div>
           </div>
