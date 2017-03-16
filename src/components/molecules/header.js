@@ -32,7 +32,7 @@ class Header extends Component {
               <div className="header-bottom">
                 <a href="#about">About</a>
                 <a href="#work">Projects</a>
-                <a href="./peter_gyory_resume_2016.pdf">Resume</a>
+                <a href="./peter_gyory_resume_2017.pdf">Resume</a>
               </div>
             </div>
           </div>

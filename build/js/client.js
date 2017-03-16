@@ -30543,7 +30543,7 @@
 	                ),
 	                _react2.default.createElement(
 	                  'a',
-	                  { href: './peter_gyory_resume_2016.pdf' },
+	                  { href: './peter_gyory_resume_2017.pdf' },
 	                  'Resume'
 	                )
 	              )
