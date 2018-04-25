@@ -1,0 +1,60 @@
+.modal {
+  display: block;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  /* left: 80px; */
+  width: 100%;
+
+  background: #fafafa;
+  color: #1a1a1a;
+  height: 100vh;
+
+  padding-top: 30px;
+}
+
+.modal-details {
+  width: 45%;
+  margin: 0 auto;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  margin-top: 20px
+}
+
+.modal-description {
+  margin-top: 20px;
+  padding: 0 5px;
+}
+
+.modal-title {
+  font-family: 'Raleway', sans-serif;
+  
+}
+
+.detail-links {
+  margin-top: 20px;
+  padding: 0 5px;
+}
+
+.detail-links li {
+  display: inline;
+}
+
+.detail-links li a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.detail-links li:after {
+  content: '-';
+  padding: 0 5px;
+  color: #dadada;
+  font-weight: 100;
+}
+
+li:last-child::after {
+  content: '';
+}
