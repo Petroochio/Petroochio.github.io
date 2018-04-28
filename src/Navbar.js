@@ -1,5 +1,6 @@
 import xs from 'xstream';
 import { div, a } from '@cycle/dom';
+import { any, equals, nth } from 'ramda';
 
 function intent(sources) {
   const linkClick$ = sources.DOM.select('.nav-link').events('click');
@@ -33,13 +34,15 @@ function view(state$) {
 
 function Navbar(sources, isStuck$) {
   const actions = intent(sources);
-  const class$ = xs.merge(
-    actions.scroll$.map(() => document.querySelector('.nav-wrapper').getBoundingClientRect().top)
-    .map(t => (t > 0),
+
+  const isStickPoint$ = actions.scroll$
+    .map(() => (document.querySelector('.nav-wrapper').getBoundingClientRect().top <= 0));
+  const class$ = xs.combine(
+    isStickPoint$,
     isStuck$
   )
-  .map(t => (t ? '.nav' : '.nav.is-stuck')))
-  // this is a hack
+  .map(any(equals(true)))
+  .map(t => (t ? '.nav.is-stuck' : '.nav'))
   .startWith('.nav');
 
   const vdom$ = view(class$);

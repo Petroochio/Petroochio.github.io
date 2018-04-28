@@ -34,13 +34,14 @@ function view(state$) {
 }
 
 function main(sources) {
-  const previewStateProxy$ = xs.create();
+  const previewStateProxy$ = xs.create(); // why won't this take more than 2?
   const previewInitial$ = xs.merge(xs.of(false), previewStateProxy$);
+  const previewInitial2$ = xs.merge(xs.of(false), previewStateProxy$);
   const navbar = Navbar(sources, previewStateProxy$);
   const footer = Footer(sources);
   const details = ProjectDetail(sources, previewInitial$);
 
-  const projects = isolate(Projects)(sources, previewStateProxy$.map(not));
+  const projects = isolate(Projects)(sources, previewInitial2$.map(not));
   const previewState$ = xs.merge(
     xs.of(false),
     navbar.navClick$.mapTo(false),
@@ -48,7 +49,7 @@ function main(sources) {
   );
   previewStateProxy$.imitate(previewState$);
   // get that obj spread going, some es next shit
-  const children$ = xs.combine(navbar.DOM.debug(), projects.DOM.debug(), footer.DOM.debug(), details.DOM.debug());
+  const children$ = xs.combine(navbar.DOM, projects.DOM, footer.DOM, details.DOM);
 
   const sinks = {
     DOM: view(children$),
