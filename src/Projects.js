@@ -26,7 +26,7 @@ function intent({ DOM }) {
 }
 
 function model({ previewClick$ }) {
-  const projectData$ = xs.merge(xs.of(''), previewClick$).mapTo({ name: 'temp' });
+  const projectData$ = previewClick$.mapTo({ name: 'temp' });
 
   return {
     projectData$,
@@ -50,7 +50,7 @@ function view(isVisible$) {
 function Projects(sources, isVisible$) {
   const actions = intent(sources);
   const state = model(actions);
-  const vdom$ = view(xs.of('true'));
+  const vdom$ = view(isVisible$);
 
   return {
     projectData$: state.projectData$,

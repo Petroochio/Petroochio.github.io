@@ -1,6 +1,7 @@
 import xs from 'xstream';
 import { run } from '@cycle/run';
 import { makeDOMDriver, section, h1, div, a } from '@cycle/dom';
+import { not } from 'ramda';
 import isolate from '@cycle/isolate';
 
 import Navbar from './Navbar';
@@ -33,20 +34,21 @@ function view(state$) {
 }
 
 function main(sources) {
-  const navbar = Navbar(sources);
-  const footer = Footer(sources);
-
   const previewStateProxy$ = xs.create();
-  const details = ProjectDetail(sources, previewStateProxy$, xs.empty());
+  const previewInitial$ = xs.merge(xs.of(false), previewStateProxy$);
+  const navbar = Navbar(sources, previewStateProxy$);
+  const footer = Footer(sources);
+  const details = ProjectDetail(sources, previewInitial$);
 
-  const projects = isolate(Projects)(sources, previewStateProxy$);
+  const projects = isolate(Projects)(sources, previewStateProxy$.map(not));
   const previewState$ = xs.merge(
-    navbar.navClick$,
+    xs.of(false),
+    navbar.navClick$.mapTo(false),
     projects.projectData$.mapTo(true)
   );
   previewStateProxy$.imitate(previewState$);
   // get that obj spread going, some es next shit
-  const children$ = xs.combine(navbar.DOM, projects.DOM, footer.DOM, details.DOM);
+  const children$ = xs.combine(navbar.DOM.debug(), projects.DOM.debug(), footer.DOM.debug(), details.DOM.debug());
 
   const sinks = {
     DOM: view(children$),

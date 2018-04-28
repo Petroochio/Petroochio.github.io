@@ -2,7 +2,7 @@ import xs from 'xstream';
 import { div, a } from '@cycle/dom';
 
 function intent(sources) {
-  const linkClick$ = sources.DOM.select('.nav-link');
+  const linkClick$ = sources.DOM.select('.nav-link').events('click');
   const scroll$ = xs.merge(
     sources.DOM.select('#main').events('mousewheel'),
     sources.DOM.select('#main').events('DOMMouseScroll')
@@ -34,12 +34,12 @@ function view(state$) {
 function Navbar(sources, isStuck$) {
   const actions = intent(sources);
   const class$ = xs.merge(
-    actions.scroll$.map(() => document.querySelector('.nav-wrapper').getBoundingClientRect().top),
+    actions.scroll$.map(() => document.querySelector('.nav-wrapper').getBoundingClientRect().top)
+    .map(t => (t > 0),
     isStuck$
   )
-  .map(t => (t > 0 ? '.nav' : '.nav.is-stuck'))
+  .map(t => (t ? '.nav' : '.nav.is-stuck')))
   // this is a hack
-
   .startWith('.nav');
 
   const vdom$ = view(class$);
