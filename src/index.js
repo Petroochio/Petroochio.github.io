@@ -4,10 +4,11 @@ import { makeDOMDriver, section, h1, div, a } from '@cycle/dom';
 import isolate from '@cycle/isolate';
 
 import Navbar from './Navbar';
+import Footer from './Footer';
 // Will need a main div section that manages the three things,
 // or I just put them all on the same page
 import Projects from './Projects';
-import ProjectModal from './ProjectModal';
+import ProjectDetail from './ProjectDetail';
 
 const drivers = {
   DOM: makeDOMDriver('#root'),
@@ -16,7 +17,7 @@ const drivers = {
 function view(state$) {
   // [navbar, projects, projmodal] gonna need to get position of clicked image for projectmodal
   return state$.map(
-    ([navbar, projects]) => div('#main', [
+    ([navbar, projects, footer, details]) => div('#main', [
       section(
         '#landing.hero',
         [
@@ -25,20 +26,27 @@ function view(state$) {
         ]
       ),
       projects,
+      footer,
+      details,
     ]) // make this hold the nav
   );
 }
 
 function main(sources) {
   const navbar = Navbar(sources);
+  const footer = Footer(sources);
 
-  const previewDataProxy$ = xs.create();
-  const modal = ProjectModal(sources, previewDataProxy$, xs.empty());
+  const previewStateProxy$ = xs.create();
+  const details = ProjectDetail(sources, previewStateProxy$, xs.empty());
 
-  const projects = isolate(Projects)(sources, modal.state$);
-  previewDataProxy$.imitate(projects.previewData$);
+  const projects = isolate(Projects)(sources, previewStateProxy$);
+  const previewState$ = xs.merge(
+    navbar.navClick$,
+    projects.projectData$.mapTo(true)
+  );
+  previewStateProxy$.imitate(previewState$);
   // get that obj spread going, some es next shit
-  const children$ = xs.combine(navbar.DOM, projects.DOM, modal.DOM);
+  const children$ = xs.combine(navbar.DOM, projects.DOM, footer.DOM, details.DOM);
 
   const sinks = {
     DOM: view(children$),

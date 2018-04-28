@@ -1,6 +1,6 @@
 import xs from 'xstream';
 import { a, div, img, section, span } from '@cycle/dom';
-import { repeat, not } from 'ramda';
+import { repeat } from 'ramda';
 
 // Might need to make this a component .___________.
 function projectPreview(name, src) {
@@ -26,15 +26,16 @@ function intent({ DOM }) {
 }
 
 function model({ previewClick$ }) {
-  const previewData$ = xs.merge(xs.of(''), previewClick$).mapTo({ name: 'temp' });
+  const projectData$ = xs.merge(xs.of(''), previewClick$).mapTo({ name: 'temp' });
 
   return {
-    previewData$,
+    projectData$,
   };
 }
 
-function view(visible$) {
-  return visible$.map(not).map(
+function view(isVisible$) {
+  return isVisible$
+  .map(
     visible =>
       section(
         `.projects${visible ? '' : '.hidden'}`,
@@ -46,13 +47,13 @@ function view(visible$) {
   );
 }
 
-function Projects(sources, visible$) {
+function Projects(sources, isVisible$) {
   const actions = intent(sources);
   const state = model(actions);
-  const vdom$ = view(visible$);
+  const vdom$ = view(xs.of('true'));
 
   return {
-    previewData$: state.previewData$,
+    projectData$: state.projectData$,
     DOM: vdom$,
   };
 }

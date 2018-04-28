@@ -1,7 +1,7 @@
 /* Z-INDEX KEY
 
-20 - Modals?
-10 - nav
+20 - Nav?
+10 - Modals
 0 - everything else
 
 */
@@ -22,6 +22,10 @@ li {
   list-style-type: none;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .hero {
   background: url("../img/hero-background.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -31,7 +35,6 @@ li {
 }
 
 .hero h1 {
-  /* text-align: center; */
   display: block;
   text-align: center;
 
@@ -67,7 +70,8 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 20;
+  box-shadow: 0px 0.1px 1px 0px #8a8a8a;
 }
 
 .nav a {
@@ -80,38 +84,39 @@ li {
   color: #1a1a1a;
   cursor: pointer;
 }
-/* 
-.nav-bar {
+
+/* Footer stuff :3 */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* border-top: 1px solid #8a8a8a; */
+
+  height: 60px;
+  background: #eaeaea;
+  color: #8a8a8a;
+  font-size: 18px;
+}
+
+.copyright {
+  font-weight: 100;
   display: inline-block;
-  vertical-align: top;
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 80px;
-  height: 100%;
-  background-color: #1a1a1a;
-  text-align: center;
-  padding: 0 0 0 0;
-
-  z-index: 10;
+  margin-left: 30px;
 }
 
-.nav {
-  padding-top: 30px;
+.footer-link-container {
+  max-width: 400px;
+  display: inline-block;
+  margin-right: 30px;
 }
 
-.nav-item {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 10px;
+.footer-link {
+  color: #8a8a8a;
+  font-size: 24px;
+  margin-left: 10px;
 }
 
-.nav-item-link {
-  color: #fafafa;
-  letter-spacing: 0.5px;
+.footer-link:hover {
+  color: #1a1a1a;
 }
-
-.hidden {
-  display: none !important;
-} */
