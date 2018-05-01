@@ -9,8 +9,9 @@ ever inspired by the DDR dance pads and light gun games of arcades.
 
 const bioText2 = `
 Games have been an important part of Peter’s life since he used to play them 
-with his siblings as a child. In undergrad he studied Game Design and 
-Development at the Rochester Institute of Technology. Now he is fascinated 
+with his siblings as a child. As an undergraduate student he studied
+Game Design and Development at the 
+Rochester Institute of Technology. Now he is fascinated 
 with the way we control games and how different controllers can reshape the 
 experience entirely.
 `;

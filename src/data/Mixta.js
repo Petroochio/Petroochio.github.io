@@ -27,5 +27,5 @@ export default [
     ]
   ),
   img('.detail-media', { attrs: { src: 'img/mixta/imagine_1.jpg' } }),
-  img('.detail-media', { attrs: { src: 'img/mixta/mixta.jpg' } }),
+  img('.detail-media', { attrs: { src: 'img/mixta.jpg' } }),
 ];
