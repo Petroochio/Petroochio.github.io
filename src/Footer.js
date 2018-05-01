@@ -13,7 +13,7 @@ function view() {
             a('.footer-link', { attrs: { href: 'https://twitter.com/Petroochio' } }, h('i.fab.fa-twitter')),
             a('.footer-link', { attrs: { href: 'https://github.com/Petroochio' } }, h('i.fab.fa-github')),
             a('.footer-link', { attrs: { href: 'https://www.linkedin.com/in/petergyory/' } }, h('i.fab.fa-linkedin')),
-            a('.footer-link', { attrs: { href: 'mailto:ptgyory@gmail.com?subject=Portfolio Mail' } }, h('i.fab.fa-envelope')),
+            a('.footer-link', { attrs: { href: 'mailto:ptgyory@gmail.com?subject=Portfolio Mail' } }, h('i.fas.fa-envelope')),
           ]
         ),
       ]

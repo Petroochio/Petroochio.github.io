@@ -1,6 +1,6 @@
 import xs from 'xstream';
 import { div, a } from '@cycle/dom';
-import { any, equals, nth } from 'ramda';
+import { any, equals, compose, prop } from 'ramda';
 
 function intent(sources) {
   const linkClick$ = sources.DOM.select('.nav-link').events('click');
@@ -22,10 +22,10 @@ function view(state$) {
         div(
           c,
           [
-            a('#work.nav-link', 'work'),
-            a('#work.nav-link', 'about'),
+            a('.nav-link', { attrs: { href: '#work' } }, 'work'),
+            a('.nav-link', { attrs: { href: '#about' } }, 'about'),
             // a('#work.nav-link', 'blog'),
-            a('#work.nav-link', 'cv'),
+            a('.nav-link', { attrs: { href: '../peter_gyory_resume.pdf' } }, 'cv'),
           ]
         )
       )
@@ -36,7 +36,8 @@ function Navbar(sources, isStuck$) {
   const actions = intent(sources);
 
   const isStickPoint$ = actions.scroll$
-    .map(() => (document.querySelector('.nav-wrapper').getBoundingClientRect().top <= 0));
+    .map(() => (document.querySelector('.nav-wrapper').getBoundingClientRect().top <= 0))
+    .startWith('false');
   const class$ = xs.combine(
     isStickPoint$,
     isStuck$

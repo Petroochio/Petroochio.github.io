@@ -1,11 +1,11 @@
-import Interlude from './Interlude';
-import Scanner from './Scanner';
-import Mixta from './Mixta';
-import Delvr from './Delvr';
+import interlude from './Interlude';
+import scanner from './Scanner';
+import mixta from './Mixta';
+import telling from './Telling';
 
-export default [
-  Interlude,
-  Scanner,
-  Delvr,
-  Mixta,
-]
+export default {
+  interlude,
+  scanner,
+  mixta,
+  telling,
+};

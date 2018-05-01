@@ -1,14 +1,14 @@
 import xs from 'xstream';
 import { a, div, img, section, span } from '@cycle/dom';
-import { repeat } from 'ramda';
+import { compose, repeat, prop } from 'ramda';
 
 // Might need to make this a component .___________.
-function projectPreview(name, src) {
+function projectPreview(id, name, src) {
   return div(
     '.preview',
     a(
-      '.preview-link',
-      { attrs: { href: '#test' } },
+      `#${id}.preview-link`,
+      { attrs: { href: `#${id}` } }, // include router here?
       [
         img('.preview-link-img', { attrs: { src } }),
         span('.preview-link-text', name),
@@ -18,7 +18,11 @@ function projectPreview(name, src) {
 }
 
 function intent({ DOM }) {
-  const previewClick$ = DOM.select('.preview-link').events('click');
+  const previewClick$ = DOM.select('.preview-link').events('click')
+    .map(e => {
+      window.scrollTo(0, 0);
+      return e;
+    });
 
   return {
     previewClick$,
@@ -26,7 +30,7 @@ function intent({ DOM }) {
 }
 
 function model({ previewClick$ }) {
-  const projectData$ = previewClick$.mapTo({ name: 'temp' });
+  const projectData$ = previewClick$.map(compose(prop('id'), prop('currentTarget')));
 
   return {
     projectData$,
@@ -38,10 +42,12 @@ function view(isVisible$) {
   .map(
     visible =>
       section(
-        `.projects${visible ? '' : '.hidden'}`,
+        `#work.projects${visible ? '' : '.hidden'}`,
         [
-          projectPreview('A SCANNER ORDERLY', 'img/scanner.jpg'),
-          ...repeat(projectPreview('INTERLUDE', 'img/interlude.png'), 5),
+          projectPreview('telling', 'THE TELLING BOARD', 'img/telling.jpg'),
+          projectPreview('scanner', 'A SCANNER ORDERLY', 'img/scanner.jpg'),
+          projectPreview('interlude', 'INTERLUDE', 'img/interlude.png'),
+          projectPreview('mixta', 'MIXTA', 'img/mixta.jpg'),
         ]
       )
   );
