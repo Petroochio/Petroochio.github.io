@@ -91,7 +91,7 @@
 	
 	const drivers = {
 	  DOM: (0, _dom.makeDOMDriver)('#root'),
-	  History: (0, _history.makeHistoryDriver)()
+	  history: (0, _history.makeHashHistoryDriver)()
 	};
 	
 	function view(state$) {
@@ -109,25 +109,35 @@
 	  );
 	}
 	
-	function main(sources) {
-	  const previewStateProxy$ = _xstream2.default.create(); // why won't this take more than 2?
-	  const previewInitial$ = _xstream2.default.merge(_xstream2.default.of(false), previewStateProxy$);
-	  const previewInitial2$ = _xstream2.default.merge(_xstream2.default.of(false), previewStateProxy$);
-	  const previewInitial3$ = _xstream2.default.merge(_xstream2.default.of(false), previewStateProxy$);
-	  const navbar = (0, _Navbar2.default)(sources, previewStateProxy$.map((0, _ramda.prop)('show')));
-	  const footer = (0, _Footer2.default)(sources);
-	  const about = (0, _About2.default)(sources, previewInitial3$.map((0, _ramda.prop)('show')).map(_ramda.not));
-	  const details = (0, _ProjectDetail2.default)(sources, previewInitial$);
+	const projectPaths = ['/telling', '/interlude', '/hotswap', '/mixta'];
+	function isProjectPath(_ref3) {
+	  let pathname = _ref3.pathname;
 	
-	  const projects = (0, _isolate2.default)(_Projects2.default)(sources, previewInitial2$.map((0, _ramda.prop)('show')).map(_ramda.not));
-	  const previewState$ = _xstream2.default.merge(_xstream2.default.of({ show: false, id: 'scanner' }), navbar.navClick$.mapTo({ show: false, id: 'scanner' }), projects.projectData$.map(id => ({ show: true, id })));
-	  previewStateProxy$.imitate(previewState$);
+	  return (0, _ramda.contains)(pathname, projectPaths);
+	}
+	
+	function main(sources) {
+	  const show$ = sources.history.map(isProjectPath);
+	  const pathname$ = sources.history.map((_ref4) => {
+	    let pathname = _ref4.pathname;
+	    return pathname === '/' ? '' : (0, _ramda.tail)(pathname);
+	  }).debug('path');
+	
+	  const navbar = (0, _Navbar2.default)(sources, show$);
+	  const footer = (0, _Footer2.default)(sources);
+	  const about = (0, _About2.default)(sources, show$.map(_ramda.not));
+	  const details = (0, _ProjectDetail2.default)(sources, pathname$);
+	
+	  const projects = (0, _isolate2.default)(_Projects2.default)(sources, show$.map(_ramda.not));
+	
+	  const path$ = _xstream2.default.merge(_xstream2.default.of('/'), navbar.navClick$.mapTo('/'), projects.projectData$);
+	
 	  // get that obj spread going, some es next shit
-	  const children$ = _xstream2.default.combine(navbar.DOM, projects.DOM, about.DOM.debug(), footer.DOM, details.DOM);
+	  const children$ = _xstream2.default.combine(navbar.DOM, projects.DOM, about.DOM, footer.DOM, details.DOM);
 	
 	  const sinks = {
 	    DOM: view(children$),
-	    History: _xstream2.default.of('/') // navbar.navClick$,
+	    history: path$ // xs.of('/'), // navbar.navClick$,
 	  };
 	  return sinks;
 	}
@@ -24611,7 +24621,7 @@
 	function view(state$) {
 	  return state$.map(c => (0, _dom.div)('.nav-wrapper', (0, _dom.div)(c, [(0, _dom.a)('.nav-link', { attrs: { href: '#work' } }, 'work'), (0, _dom.a)('.nav-link', { attrs: { href: '#about' } }, 'about'),
 	  // a('#work.nav-link', 'blog'),
-	  (0, _dom.a)('.nav-link', { attrs: { href: '../peter_gyory_resume.pdf' } }, 'cv')])));
+	  (0, _dom.a)('.nav-link', { attrs: { href: '../peter_gyory_cv_2018.pdf' } }, 'cv')])));
 	}
 	
 	function Navbar(sources, isStuck$) {
@@ -24763,7 +24773,7 @@
 	}
 	
 	function view(isVisible$) {
-	  return isVisible$.map(visible => (0, _dom.section)(`#work.projects${visible ? '' : '.hidden'}`, [projectPreview('telling', 'THE TELLING BOARD', 'img/telling.jpg'), projectPreview('scanner', 'A SCANNER ORDERLY', 'img/scanner.jpg'), projectPreview('interlude', 'INTERLUDE', 'img/interlude.png'), projectPreview('mixta', 'MIXTA', 'img/mixta.jpg')]));
+	  return isVisible$.map(visible => (0, _dom.section)(`#work.projects${visible ? '' : '.hidden'}`, [projectPreview('telling', 'THE TELLING BOARD', 'img/telling.jpg'), projectPreview('hotswap', 'HOT SWAP', 'img/hotswap.jpg'), projectPreview('interlude', 'INTERLUDE', 'img/interlude.png'), projectPreview('mixta', 'MIXTA', 'img/mixta.jpg')]));
 	}
 	
 	function Projects(sources, isVisible$) {
@@ -24812,11 +24822,7 @@
 	}
 	
 	function view(state$) {
-	  return state$.map((_ref) => {
-	    let show = _ref.show,
-	        id = _ref.id;
-	    return (0, _dom.section)(`.details${show ? '' : '.hidden'}`, _data2.default[id]);
-	  });
+	  return state$.debug('dis').map(id => (0, _dom.section)(`.details${id !== '' ? '' : '.hidden'}`, _data2.default[id]));
 	}
 	
 	function ProjectDetail(sources, previewState$) {
@@ -24856,13 +24862,18 @@
 	
 	var _Telling2 = _interopRequireDefault(_Telling);
 	
+	var _HotSwap = __webpack_require__(171);
+	
+	var _HotSwap2 = _interopRequireDefault(_HotSwap);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
 	  interlude: _Interlude2.default,
 	  scanner: _Scanner2.default,
 	  mixta: _Mixta2.default,
-	  telling: _Telling2.default
+	  telling: _Telling2.default,
+	  hotswap: _HotSwap2.default
 	};
 
 /***/ }),
@@ -24977,6 +24988,31 @@
 	// `;
 	
 	exports.default = [(0, _dom.h1)('.detail-title', 'The Telling Board'), (0, _dom.h3)('.detail-time', 'ATLAS Independent Study, CU Boulder | 2018'), (0, _dom.p)('.detail-desc', detailText), (0, _dom.p)('.detail-desc', [(0, _dom.span)('.detail-subhead', 'Collaborators: \n'), 'Denise Powell, Annie Bruns, Cicada Scott']), (0, _dom.img)('.detail-media', { attrs: { src: 'img/telling/1910.jpg' } }), (0, _dom.img)('.detail-media', { attrs: { src: 'img/telling/1916.jpg' } }), (0, _dom.img)('.detail-media', { attrs: { src: 'img/telling/1918.jpg' } })];
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _dom = __webpack_require__(9);
+	
+	const detailText = `
+	HOT SWAP: All Hands On Deck is a two player cooperative arcade survival game were players must swap out and trade inputs on their controllers survive the onslaught of approaching enemy ships. Each controller consists of two input slots and corresponds to one side of the ship, port or starboard. There are five actions in the game, each executed with a dedicated physical input: a crank to raise and lower the sails, a wheel for turning the rudder, a hatch for loading the cannons, a wick for firing the cannons, and a flame button for dousing the fire. Each input is a shared resource. Players must consider the physical space around them as they trade parts of their controllers to stay afloat for as long as possible.
+	`;
+	
+	const vimeoEmbed = `
+	<div style="padding:56.25% 0 0 0;position:relative;">
+	<iframe src="https://player.vimeo.com/video/303835908" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	<script src="https://player.vimeo.com/api/player.js"></script>
+	`;
+	
+	exports.default = [(0, _dom.h1)('.detail-title', 'Hot Swap'), (0, _dom.h3)('.detail-time', 'University of Colorado Boulder | 2018'), (0, _dom.p)('.detail-desc', detailText), (0, _dom.div)('.detail-media', { props: { innerHTML: vimeoEmbed } }), (0, _dom.p)('.detail-desc', [(0, _dom.span)('.detail-subhead', 'Collaborator: '), 'Clement Zheng']), (0, _dom.img)('.detail-media', { attrs: { src: 'img/hotswap/setup.jpg' } }), (0, _dom.img)('.detail-media', { attrs: { src: 'img/hotswap/gameplay.png' } }), (0, _dom.img)('.detail-media', { attrs: { src: 'img/hotswap/deconstructed.jpg', alt: 'Deconstructed Hot Swap Input' } })];
 
 /***/ })
 /******/ ]);

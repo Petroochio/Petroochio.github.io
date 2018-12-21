@@ -1,8 +1,8 @@
 import xs from 'xstream';
 import { run } from '@cycle/run';
 import { makeDOMDriver, section, h1, div } from '@cycle/dom';
-import { makeHistoryDriver } from '@cycle/history';
-import { not, prop } from 'ramda';
+import { makeHashHistoryDriver } from '@cycle/history';
+import { not, contains, prop, tail } from 'ramda';
 import isolate from '@cycle/isolate';
 
 import Navbar from './Navbar';
@@ -15,7 +15,7 @@ import ProjectDetail from './ProjectDetail';
 
 const drivers = {
   DOM: makeDOMDriver('#root'),
-  History: makeHistoryDriver(),
+  history: makeHashHistoryDriver(),
 };
 
 function view(state$) {
@@ -39,29 +39,35 @@ function view(state$) {
   );
 }
 
-function main(sources) {
-  const previewStateProxy$ = xs.create(); // why won't this take more than 2?
-  const previewInitial$ = xs.merge(xs.of(false), previewStateProxy$);
-  const previewInitial2$ = xs.merge(xs.of(false), previewStateProxy$);
-  const previewInitial3$ = xs.merge(xs.of(false), previewStateProxy$);
-  const navbar = Navbar(sources, previewStateProxy$.map(prop('show')));
-  const footer = Footer(sources);
-  const about = About(sources, previewInitial3$.map(prop('show')).map(not));
-  const details = ProjectDetail(sources, previewInitial$);
+const projectPaths = ['/telling', '/interlude', '/hotswap', '/mixta'];
+function isProjectPath({ pathname }) {
+  return contains(pathname, projectPaths);
+}
 
-  const projects = isolate(Projects)(sources, previewInitial2$.map(prop('show')).map(not));
-  const previewState$ = xs.merge(
-    xs.of({ show: false, id: 'scanner' }),
-    navbar.navClick$.mapTo({ show: false, id: 'scanner' }),
-    projects.projectData$.map(id => ({ show: true, id }))
+function main(sources) {
+  const show$ = sources.history.map(isProjectPath);
+  const pathname$ = sources.history
+    .map(({ pathname }) => (pathname === '/' ? '' : tail(pathname))).debug('path');
+
+  const navbar = Navbar(sources, show$);
+  const footer = Footer(sources);
+  const about = About(sources, show$.map(not));
+  const details = ProjectDetail(sources, pathname$);
+
+  const projects = isolate(Projects)(sources, show$.map(not));
+
+  const path$ = xs.merge(
+    xs.of('/'),
+    navbar.navClick$.mapTo('/'),
+    projects.projectData$
   );
-  previewStateProxy$.imitate(previewState$);
+
   // get that obj spread going, some es next shit
-  const children$ = xs.combine(navbar.DOM, projects.DOM, about.DOM.debug(), footer.DOM, details.DOM);
+  const children$ = xs.combine(navbar.DOM, projects.DOM, about.DOM, footer.DOM, details.DOM);
 
   const sinks = {
     DOM: view(children$),
-    History: xs.of('/'), // navbar.navClick$,
+    history: path$, // xs.of('/'), // navbar.navClick$,
   };
   return sinks;
 }

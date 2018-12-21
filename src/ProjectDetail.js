@@ -16,9 +16,9 @@ function model(previewData$, hide$) {
 }
 
 function view(state$) {
-  return state$.map(
-    ({ show, id }) => section(
-      `.details${show ? '' : '.hidden'}`,
+  return state$.debug('dis').map(
+    id => section(
+      `.details${id !== '' ? '' : '.hidden'}`,
       data[id]
     )
   );

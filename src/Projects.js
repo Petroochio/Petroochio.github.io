@@ -45,7 +45,7 @@ function view(isVisible$) {
         `#work.projects${visible ? '' : '.hidden'}`,
         [
           projectPreview('telling', 'THE TELLING BOARD', 'img/telling.jpg'),
-          projectPreview('scanner', 'A SCANNER ORDERLY', 'img/scanner.jpg'),
+          projectPreview('hotswap', 'HOT SWAP', 'img/hotswap.jpg'),
           projectPreview('interlude', 'INTERLUDE', 'img/interlude.png'),
           projectPreview('mixta', 'MIXTA', 'img/mixta.jpg'),
         ]

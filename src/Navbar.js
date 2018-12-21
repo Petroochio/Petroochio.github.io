@@ -25,7 +25,7 @@ function view(state$) {
             a('.nav-link', { attrs: { href: '#work' } }, 'work'),
             a('.nav-link', { attrs: { href: '#about' } }, 'about'),
             // a('#work.nav-link', 'blog'),
-            a('.nav-link', { attrs: { href: '../peter_gyory_resume.pdf' } }, 'cv'),
+            a('.nav-link', { attrs: { href: '../peter_gyory_cv_2018.pdf' } }, 'cv'),
           ]
         )
       )
