@@ -38,6 +38,9 @@ nav ul {
 
 nav ul li {
   display: inline;
+}
+
+nav ul li:nth-child(2) {
   margin-left: 20px;
 }
 
@@ -146,4 +149,39 @@ footer .social-links a:visited {
 
 footer .social-links a:hover {
   color: #aaa;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  #project-list ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+    row-gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  #project-list li {
+    width: 100%;
+  }
+
+  #main-content h1 {
+    font-size: 2.5rem;
+    margin-top: 10rem;
+  }
+
+  .landing-info {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
 }
