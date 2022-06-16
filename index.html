@@ -2,18 +2,93 @@
 <html>
   <head>
     <title>Peter Gyory | Human</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:100|Roboto:300" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <link rel="stylesheet" type="text/css" href="./css/project.css">
-    <link rel="stylesheet" type="text/css" href="./css/modal.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/new_main.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
   </head>
 
   <body>
-    <div id="root">
-    </div>
-    <script src="./build/app.js"></script>
+    <nav>
+      <span>Peter Gyory</span>
+
+      <ul>
+        <li><a href="#project-list">work</a></li>
+        <!-- <li><a href="#">publications</a></li> -->
+        <li><a href="./Peter_Gyory_CV.pdf">cv</a></li>
+      </ul>
+    </nav>
+
+    <section id="main-content" class="container">
+      <h1 id="fancy-title">Hi, I'm Peter Gyory</h1>
+      <p class="landing-info">I am a Reasearcher and Game Designer who primarily makes games with weird controllers. I am currently based in Boulder Colorado where I am working on my PhD in Creative Technology and Design as a student at the ALTAS Institute.</p>
+
+
+      <div id="project-list">
+        <h2>FEATURED WORK</h2>
+
+        <ul>
+          <li class="project-card">
+            <a href="http://tinycade.io">
+              <img src="./img/tinycade_tile.png">
+              <p class="title">Tinycade</p>
+              <p class="description">A DIY platform for creating custom mini arcade games.</p>
+            </a>
+          </li>
+
+          <li class="project-card">
+            <a href="https://hotswapgame.github.io">
+              <img src="./img/hot_swap_tile.png">
+              <p class="title">HOT SWAP</p>
+              <p class="description">A frantic co-op game where players must reconfigure the controller while they play.</p>
+            </a>
+          </li>
+
+          <li class="project-card">
+            <a href="https://www.colorado.edu/atlas/home-based-diy-interactive-information-physicalization-young-children-and-their-parents">
+              <img src="./img/eager_tile.png">
+              <p class="title">Data Is Yours Toolkit</p>
+              <p class="description">An educational project for teaching information literacy through physical data representations.</p>
+            </a>
+          </li>
+
+          <li class="project-card">
+            <a href="https://www.helaniusj.com/multiscapes">
+              <img src="./img/multiscapes_tile.png">
+              <p class="title">Multiscapes</p>
+              <p class="description">An interactive installation that blends dance, technology, design and sound.</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span id="copyright">Copyright Peter Gyory 2022</span>
+
+      <span class="social-links">
+        <a href="https://github.com/Petroochio">github</a>
+        <a href="">linkedin</a>
+      </span>
+    </footer>
+
+    <script>
+      // const title = document.querySelector('#fancy-title');
+      // document.addEventListener('mousemove', (e) => {
+      //   title.style.textShadow = "10px 10px #aaa";
+      // });
+    </script>
+
+    <!-- <section id="footer">
+      <span id="copyright">Copyright Peter Gyory 2022</span>
+
+      <span class="social-link">github</span>
+      <span class="social-link">linkedin</span>
+    </section> -->
   </body>
 </html>

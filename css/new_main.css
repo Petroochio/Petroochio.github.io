@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Roboto';
+  padding-bottom: 60px;
+  position: relative;
+  /* height: fit-content; */
+}
+
+/* NAV BAR */
+nav {
+  background: white;
+  color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 5%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  height: 80px;
+}
+
+nav span {
+  font-size: 1.6rem;
+}
+
+nav ul {
+  display: inline-block;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #111;
+  text-decoration: none;
+}
+
+nav ul li a:visited {
+  color: #111;
+}
+
+nav ul li a:hover {
+  color: #aaa;
+}
+
+/* CONTAINER and MAIN CONTENT */
+.container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#main-content h1 {
+  font-size: 3.5rem;
+  margin-top: 10rem;
+}
+
+.landing-info {
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  max-width: 80%;
+  margin-top: 1rem;
+}
+
+#project-list {
+  margin-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+#project-list h2 {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+#project-list ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+  margin-top: 2rem;
+}
+
+#project-list li {
+  width: 45%;
+  list-style: none;
+}
+
+#project-list img {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.project-card a, .project-card a:visited {
+  color: #111;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.project-card .title {
+  margin-top: 0.5rem;
+}
+
+.project-card .description {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-top: 0.25rem;
+  max-width: 90%;
+}
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+footer .social-links a {
+  color: #111;
+  text-decoration: none;
+  padding-left: 0.5rem;
+}
+
+footer .social-links a:visited {
+  color: #111;
+}
+
+footer .social-links a:hover {
+  color: #aaa;
+}
