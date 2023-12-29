@@ -3,93 +3,96 @@
   <head>
     <title>Peter Gyory | Human</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="./css/new_main.css">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,400;0,700;0,800;0,900;1,100;1,800;1,900&family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
 
   <body>
     <nav>
-      <span>Peter Gyory</span>
+        <h1 id="main-title"><a href="/index.html">PETER GYORY</a></h1>
 
       <ul>
-        <li><a href="#project-list">work</a></li>
-        <li><a href="./Peter_Gyory_CV.pdf">cv</a></li>
+        <li><a class="gradient-hover" href="/work.html">work</a></li>
+        <li><a class="gradient-hover" href="/info.html">info</a></li>
+        <!-- <li><a href="./Peter_Gyory_CV.pdf">cv</a></li> -->
       </ul>
     </nav>
 
     <section id="main-content" class="container">
-      <h1 id="fancy-title">Hi, I'm Peter Gyory</h1>
-      <p class="landing-info">I am a Researcher and Game Designer who primarily makes games with weird controllers. I am currently based in Boulder Colorado where I am working on my PhD in Creative Technology and Design as a student at the ALTAS Institute.</p>
+        <p class="landing-info">
+            Hi I’m Peter, I am a <strong>Researcher</strong> and <strong>Game Designer</strong> who makes weird game controllers and tools to help others do the same.
+            <br/>
+            My research centers on designing tangible interfaces and interactions and building creativity support tools to help budding creators begin physical computing. In my work, I primarily use materials that are readily available(e.g. cardboard, paper, smartphones) so that anyone can build upon it.
+            <br/>
+            I just completed my Ph.D in Creative Technology and Design from the ATLAS Institute at CU Boulder. I am currently teaching courses at ATLAS while I look to start the next chapter in my academic career.
+        </p>
 
+      <div class="work-list">
+        <div class="work-list-head">
+            <h2>SELECTED WORK</h2>
 
-      <div id="project-list">
-        <h2>FEATURED WORK</h2>
+            <a class="more-link gradient-hover" href="/work.html">see more -></a>
+        </div>
 
         <ul>
+            <li class="project-card">
+                <a href="/Projects/Beholder.html">
+                    <img src="./img/beholder/thumbnail.png">
+                    <div class="img-overlay"></div>
+                    <p class="title">Beholder</p>
+                    <p class="description">
+                        Visual scripting for Computer Vision based tangible interactions.
+                    </p>
+                </a>
+            </li>
+
           <li class="project-card">
-            <a href="http://tinycade.io">
-              <img src="./img/tinycade_tile.png">
-              <p class="title">Tinycade</p>
-              <p class="description">A DIY platform for creating custom mini arcade games.</p>
+            <a href="/Projects/Tinycade.html">
+                <img src="./img/tinycade_tile.png">
+                <div class="img-overlay"></div>
+                <p class="title">Tinycade</p>
+                <p class="description">
+                    A DIY platform for creating custom mini arcade games using just a smartphone.
+                </p>
             </a>
           </li>
 
           <li class="project-card">
-            <a href="https://hotswapgame.github.io">
+            <a href="/Projects/Hot_Swap.html">
               <img src="./img/hot_swap_tile.png">
+              <div class="img-overlay"></div>
+              <p class="description">
+                A frantic co-op game where players must reconfigure the controller while they play.
+            </p>
               <p class="title">HOT SWAP</p>
-              <p class="description">A frantic co-op game where players must reconfigure the controller while they play.</p>
             </a>
           </li>
 
           <li class="project-card">
-            <a href="https://www.helaniusj.com/multiscapes">
+            <a href="/Projects/Multiscapes.html">
               <img src="./img/multiscapes_tile.png">
+              <div class="img-overlay"></div>
               <p class="title">Multiscapes</p>
-              <p class="description">An interactive installation that blends dance, technology, design and sound.</p>
+              <p class="description">
+                An interactive installation that blends dance, technology, design, and sound.
+            </p>
             </a>
           </li>
-
-          <li class="project-card">
-            <a href="https://www.colorado.edu/atlas/home-based-diy-interactive-information-physicalization-young-children-and-their-parents">
-              <img src="./img/eager_tile.png">
-              <p class="title">Data Is Yours Toolkit</p>
-              <p class="description">An educational project for teaching information literacy through physical data representations.</p>
-            </a>
-          </li>
-
-          
 
         </ul>
       </div>
     </section>
 
     <footer>
-      <span id="copyright">Copyright Peter Gyory 2022</span>
+      <span id="copyright">Copyright Peter Gyory 2023</span>
 
       <span class="social-links">
-        <a href="https://github.com/Petroochio">github</a>
-        <a href="https://www.linkedin.com/in/petergyory/">linkedin</a>
+        <a href="https://github.com/Petroochio">Scholar <img src="/img/scholar.svg"/></a>
+        <a href="https://github.com/Petroochio">GitHub <img src="/img/github.svg"/></a>
+        <a href="https://www.linkedin.com/in/petergyory/">LinkedIn <img src="/img/linkedin.svg"/></a>
       </span>
     </footer>
-
-    <script>
-      // const title = document.querySelector('#fancy-title');
-      // document.addEventListener('mousemove', (e) => {
-      //   title.style.textShadow = "10px 10px #aaa";
-      // });
-    </script>
-
-    <!-- <section id="footer">
-      <span id="copyright">Copyright Peter Gyory 2022</span>
-
-      <span class="social-link">github</span>
-      <span class="social-link">linkedin</span>
-    </section> -->
   </body>
 </html>

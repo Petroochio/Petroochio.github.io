@@ -1,0 +1,69 @@
+.container {
+    max-width: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    color: #000;
+    font-size: 1.2rem;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+
+.container {
+    padding-bottom: 4rem;
+}
+
+.info-page a {
+    color: #00B2FF;
+}
+
+.info-page a:visited {
+    /* color: #99afb8; */
+    color: #00B2FF;
+}
+
+.info-page br {
+    margin: 0;
+}
+
+.personal-info-col {
+    width: calc(33% - 1rem);
+}
+
+.personal-info-col img {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 1rem;
+}
+
+.pub-info-col {
+    width: calc(66% - 1rem);
+}
+
+.info-page h2 {
+    font-family: Archivo;
+    font-weight: 700;
+    margin: 3rem 0 1.3rem 0;
+    line-height: 1.3rem;
+}
+
+.info-page h2:first-child {
+    margin-top: 0;
+}
+
+.info-page p {
+    margin-bottom: 1rem;
+}
+
+.info-page span {
+    color: #4D4D4D;
+    font-style: italic;
+    font-weight: 700;
+    display: block;
+}
+
+.info-page strong { font-weight: 700; }
