@@ -248,8 +248,12 @@ footer img {
     margin-left: 3px;
 }
 
+.mobile-show {
+    display: none;
+}
+
 /* Mobile styles */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   body {
     font-size: 10px;
   }
@@ -257,6 +261,9 @@ footer img {
   nav {
     flex-direction: column;
     margin-top: 20px;
+    justify-content: flex-start;
+    row-gap: 20px;
+    height: 100px;
   }
 
   #project-list ul {
@@ -278,7 +285,45 @@ footer img {
   }
 
   .landing-info {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .work-list-head {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .work-list-head a {
+    display: block;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  footer {
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
+  }
+
+  footer .social-links a {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    margin-bottom: 3rem;
+  }
+
+  .work-list ul {
+    flex-direction: column;
+  }
+
+  .work-list li {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-show {
+    display: inline;
   }
 }

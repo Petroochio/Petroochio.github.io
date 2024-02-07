@@ -99,3 +99,22 @@ img {
     vertical-align: middle;
     height: 100%;
 }
+
+/* Mobile styles */
+@media screen and (max-width: 600px) {
+    body {
+      font-size: 10px;
+    }
+
+    .project-row {
+        flex-direction: column;
+    }
+
+    .forty-percent {
+        width: 100%;
+    }
+
+    .sixty-percent {
+        width: 100%;
+    }
+}
